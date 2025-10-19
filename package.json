@@ -1,0 +1,24 @@
+{
+  "name": "my-monorepo",
+  "description": "",
+  "private": true,
+  "packageManager": "pnpm@8.15.0",
+  "type": "module",
+  "scripts": {
+    "build": "pnpm -r run build",
+    "dev": "pnpm -r run dev",
+    "deploy": "pnpm -r run deploy",
+    "clean": "pnpm -r exec rm -rf dist node_modules/.cache",
+    "prepare": "husky"
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx,json,css}": "biome lint"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.2.6",
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-conventional": "^20.0.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.4"
+  }
+}
