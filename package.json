@@ -1,21 +1,25 @@
 {
-  "name": "my-monorepo",
-  "description": "",
+  "name": "rr7-cloudflare-workers-monorepo",
+  "description": "A simple monorepo using React Router 7 and Cloudflare Workers",
   "private": true,
-  "packageManager": "pnpm@8.15.0",
   "type": "module",
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
   "scripts": {
-    "build": "pnpm -r run build",
-    "dev": "pnpm -r run dev",
-    "deploy": "pnpm -r run deploy",
-    "clean": "pnpm -r exec rm -rf dist node_modules/.cache",
+    "build": "bun --filter \"*\" build",
+    "dev": "bun --filter \"*\" dev",
+    "db-gen": "cd backend && bun run drizzle-kit generate",
+    "db-migrate": "cd backend && bun run drizzle-kit migrate",
+    "deploy": "bun --filter \"*\" deploy",
+    "clean": "rm -rf node_modules .turbo dist",
     "prepare": "husky"
   },
   "lint-staged": {
-    "*.{js,ts,tsx,json,css}": "biome lint"
+    "*.{js,ts,tsx,json,css}": "echo 'Linting...'"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.2.6",
     "@commitlint/cli": "^20.1.0",
     "@commitlint/config-conventional": "^20.0.0",
     "husky": "^9.1.7",

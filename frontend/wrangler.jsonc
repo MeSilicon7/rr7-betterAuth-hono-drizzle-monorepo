@@ -4,21 +4,23 @@
  */
 {
   "$schema": "node_modules/wrangler/config-schema.json",
-  "name": "web",
+  "name": "frontend",
   "compatibility_date": "2025-04-04",
   "main": "./workers/app.ts",
   "vars": {
     "VALUE_FROM_CLOUDFLARE": "Hello from Cloudflare",
+    "BACKEND_URL": "https://api.example.com",
+    "FRONTEND_URL": "https://example.com"
   },
   "observability": {
-    "enabled": true,
-  },
-//   "routes": [
-//     {
-//       "pattern": "example.com",
-//       "custom_domain": true,
-//     },
-//   ],
+    "enabled": true
+  }
+  //   "routes": [
+  //     {
+  //       "pattern": "example.com",
+  //       "custom_domain": true,
+  //     },
+  //   ],
   /**
    * Smart Placement
    * Docs: https://developers.cloudflare.com/workers/configuration/smart-placement/#smart-placement
